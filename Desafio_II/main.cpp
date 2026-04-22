@@ -39,12 +39,15 @@ int main()
     unsigned short int faltAcumuladas=2;
     unsigned short int num=66;
 
+    Jugador jugador (num);
+    jugador.sethistorico(cantGoles,minJugados,tarAmarillas,tarRojas,faltAcumuladas);
+    jugador.print();
     // Jugador jugador(num);
     // jugador.sethistorico(cantGoles,minJugados,tarAmarillas,tarRojas,faltAcumuladas);
     // actualizarArchivo(jugador.gethistorico(),num);
-    Jugador jugador(1);
-    jugador.sethistorico(cantGoles,minJugados,tarAmarillas,tarRojas,faltAcumuladas);
-    actualizarArchivo(jugador.gethistorico(),1);
+    // Jugador jugador(1);
+    // jugador.sethistorico(cantGoles,minJugados,tarAmarillas,tarRojas,faltAcumuladas);
+    // actualizarArchivo(jugador.gethistorico(),1);
 
     // for (int i=0;i<100;i++){
     //     jugador.sethistorico(cantGoles,minJugados,tarAmarillas,tarRojas,faltAcumuladas);
