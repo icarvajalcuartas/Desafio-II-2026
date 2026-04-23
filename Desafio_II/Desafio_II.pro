@@ -4,18 +4,20 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
+        ArchivoEquipo.cpp \
         Equipo.cpp \
+        HistoricoEquipo.cpp \
         HistoricoJugador.cpp \
         Jugador.cpp \
-        archivoequipo.cpp \
         archivos.cpp \
         main.cpp
 
 HEADERS += \
+    ArchivoEquipo.h \
     Equipo.h \
+    HistoricoEquipo.h \
     HistoricoJugador.h \
     Jugador.h \
-    archivoequipo.h \
     archivos.h
 
 DISTFILES += \

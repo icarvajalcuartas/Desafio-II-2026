@@ -70,6 +70,7 @@ unsigned short HistoricoJugador::getfaltAcumuladas()const
     return faltAcumuladas;
 }
 
+
 void HistoricoJugador::setpartJugados(unsigned short part)
 {
     partJugados=part;
