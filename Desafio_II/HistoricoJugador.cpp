@@ -115,7 +115,7 @@ void HistoricoJugador::print() const
 
 HistoricoJugador::~HistoricoJugador()
 {
-    cout<<"\n La instancia de historico ha sido destruida correctamente"<<endl;
+    //cout<<"\n La instancia de historico ha sido destruida correctamente"<<endl;
 }
 
 

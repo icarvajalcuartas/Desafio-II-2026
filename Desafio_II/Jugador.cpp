@@ -35,5 +35,5 @@ void Jugador::print() const
 
 Jugador::~Jugador()
 {
-    cout<<"\n la instancia de jugador ha sido destruida exitosamente"<<endl;
+    //cout<<"\n la instancia de jugador ha sido destruida exitosamente"<<endl;
 }
