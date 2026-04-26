@@ -1,22 +1,15 @@
+#include "HistoricoEquipo.h"
 #include "Equipo.h"
 using namespace std;
 
-Equipo::Equipo()
+Equipo::Equipo():pais(""),federacion(""),confederacion(""),directorTecnico(""),rankingFIFA(0),grupo(' '),historico(HistoricoEquipo())
 {
-    pais="";
-    federacion="";
-    confederacion="";
-    directorTecnico="";
-    rankingFIFA=0;
-    grupo=' ';
-
-    historico = HistoricoEquipo();
 
     cantJugadores=26;
     jugadores=new Jugador[cantJugadores];
 
     for(unsigned short int i=0; i<cantJugadores; i++){
-        jugadores[i]=Jugador(i+1);
+        jugadores[i]=Jugador(i);
     }
 }
 
@@ -35,7 +28,7 @@ Equipo::Equipo(string p, string f, string c, string dt, unsigned short int r, ch
     jugadores=new Jugador[cantJugadores];
 
     for(unsigned short int i=0; i<cantJugadores; i++){
-        jugadores[i]=Jugador(i+1);
+        jugadores[i]=Jugador(i);
     }
 }
 
@@ -116,10 +109,16 @@ void Equipo::setHistorico(const HistoricoEquipo &h)
     historico=h;
 }
 
+void Equipo::setHistoricoJugador(unsigned short numeroC, unsigned short c, unsigned short m, unsigned short tA, unsigned short tR, unsigned short fA)
+{
+    jugadores[numeroC].sethistorico(c,m,tA,tR,fA);
+
+}
+
 void Equipo::inicializarJugadores()
 {
     for(unsigned short int i=0; i<cantJugadores; i++){
-        jugadores[i]=Jugador(i+1);
+        jugadores[i]=Jugador(i);
     }
 }
 
@@ -153,6 +152,13 @@ void Equipo::printJugadores() const
         jugadores[i].print();
         cout<<endl;
     }
+}
+
+void Equipo::printJugador(unsigned short numeroC)
+{
+    cout<<"Detalles del jugador "<<numeroC<<" del equipo "<<pais<<":"<<endl;
+    jugadores[numeroC].print();
+    cout<<"------------------------"<<endl;
 }
 
 bool Equipo::operator>(const Equipo &otro) const

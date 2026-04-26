@@ -11,6 +11,7 @@ public:
     Jugador();
     Jugador(unsigned short int numC);
     Jugador (const Jugador &copiaJugador);
+    Jugador &operator= (const Jugador &otro);
     const HistoricoJugador& gethistorico()const;
     unsigned short int getnumCamiseta()const;
     void setnumCamiseta(unsigned short int num);

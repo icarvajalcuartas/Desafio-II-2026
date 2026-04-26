@@ -19,7 +19,7 @@ public:
                     unsigned short int pp, unsigned short int ta,
                     unsigned short int tr, unsigned short int fa);
     HistoricoEquipo(const HistoricoEquipo &copia);
-
+    HistoricoEquipo& operator=(const HistoricoEquipo &otro);
     void actualizarHistorico(unsigned short int gf, unsigned short int gc,
                              unsigned short int ta, unsigned short int tr,
                              unsigned short int fa);

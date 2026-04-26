@@ -1,5 +1,6 @@
 #include "HistoricoJugador.h"
 #include <iostream>
+#include<string>
 using namespace std;
 
 HistoricoJugador::HistoricoJugador()
@@ -24,6 +25,19 @@ HistoricoJugador::HistoricoJugador(const HistoricoJugador &copiahistorico)
     tarAmarillas(copiahistorico.tarAmarillas),
     tarRojas(copiahistorico.tarRojas),
     faltAcumuladas(copiahistorico.faltAcumuladas){}
+
+HistoricoJugador &HistoricoJugador::operator =(const HistoricoJugador &otro)
+{
+    if(this != &otro){
+        partJugados=otro.partJugados;
+        cantGoles=otro.cantGoles;
+        minJugados=otro.minJugados;
+        tarAmarillas=otro.tarAmarillas;
+        tarRojas=otro.tarRojas;
+        faltAcumuladas=otro.faltAcumuladas;
+    }
+    return *this;
+}
 
 void HistoricoJugador::actualizarHistorico(unsigned short cG, unsigned short mJ, unsigned short tAm, unsigned short tRo, unsigned short fAcc)
 {
@@ -108,10 +122,15 @@ void HistoricoJugador::setfaltAcumuladas(unsigned short fal)
 
 void HistoricoJugador::print() const
 {
-    cout<<"\n Historico:{"<<" Partidos jugados: "<<partJugados<<"\n Cantidad de goles:"<<cantGoles<<
-    " \n Minutos jugados: "<<minJugados<<"\n Asistencias: "<<asistencias<<
-    " \n Tarjetas amarillas: "<<tarAmarillas<<"\n Tarjetas rojas: "<<tarRojas<<
-        "\n Faltas acumuladas: "<<faltAcumuladas<<"}";
+    cout<<"Historico: {"<<endl
+    <<"Partidos jugados: "<<partJugados<<endl
+    <<"Cantidad de goles:"<<cantGoles<<endl
+    <<"Minutos jugados: "<<minJugados<<endl
+    <<"Asistencias: "<<asistencias<<endl
+    <<"Tarjetas amarillas: "<<tarAmarillas<<endl
+    <<"Tarjetas rojas: "<<tarRojas<<endl
+    <<"Faltas acumuladas: "<<faltAcumuladas<<endl
+    <<"}"<<endl;
 }
 
 HistoricoJugador::~HistoricoJugador()

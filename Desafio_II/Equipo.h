@@ -46,8 +46,8 @@ public:
     void setDirectorTecnico(string dt);
     void setRankingFIFA(unsigned short int r);
     void setGrupo(char g);
-
     void setHistorico(const HistoricoEquipo &h);
+    void setHistoricoJugador(unsigned short int numeroC,unsigned short c, unsigned short m,unsigned short tA, unsigned short tR, unsigned short fA);
 
     void inicializarJugadores();
     void actualizarHistoricoEquipo(unsigned short int gf, unsigned short int gc,
@@ -56,10 +56,13 @@ public:
 
     void print() const;
     void printJugadores() const;
+    void printJugador(unsigned short int numeroC);
 
     bool operator>(const Equipo &otro) const;
     bool operator<(const Equipo &otro) const;
-
+    friend void leerHistoricoEquipo(Equipo &equipo, const string &lineaCSV);
+    friend string crearLineaEquipo(const Equipo &equipo);
+    friend void actualizarEquipoEnArchivo(const Equipo &equipo, const string &nombreArchivo);
     ~Equipo();
 };
 

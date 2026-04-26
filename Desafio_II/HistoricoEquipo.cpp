@@ -33,6 +33,21 @@ HistoricoEquipo::HistoricoEquipo(const HistoricoEquipo &copia)
     tarjetasRojas(copia.tarjetasRojas),
     faltas(copia.faltas){}
 
+HistoricoEquipo &HistoricoEquipo::operator=(const HistoricoEquipo &otro)
+{
+    if(this != &otro){
+        golesFavor= otro.golesFavor;
+        golesContra=otro.golesContra;
+        partidosGanados=otro.partidosGanados;
+        partidosEmpatados=otro.partidosEmpatados;
+        partidosPerdidos=otro.partidosPerdidos;
+        tarjetasAmarillas=otro.tarjetasAmarillas;
+        tarjetasRojas=otro.tarjetasRojas;
+        faltas=otro.faltas;
+    }
+    return *this;
+}
+
 void HistoricoEquipo::actualizarHistorico(unsigned short int gf, unsigned short int gc,
                                           unsigned short int ta, unsigned short int tr,
                                           unsigned short int fa)
