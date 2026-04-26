@@ -165,5 +165,5 @@ void HistoricoEquipo::print() const
 
 HistoricoEquipo::~HistoricoEquipo()
 {
-    cout<<"\n La instancia de historico equipo ha sido destruida correctamente"<<endl;
+    //cout<<"\n La instancia de historico equipo ha sido destruida correctamente"<<endl;
 }

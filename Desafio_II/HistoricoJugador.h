@@ -32,7 +32,7 @@ public:
     void settarRojas(unsigned short int ro);
     void setfaltAcumuladas(unsigned short int fal);
     void print()const;
-    friend void actualizarArchivo(const HistoricoJugador &estadisticas, unsigned short int numeroCamiseta, const string &equipo);
+    friend int actualizarArchivo(const HistoricoJugador &estadisticas, unsigned short int numeroCamiseta, const string &equipo);
     ~HistoricoJugador();
 };
 

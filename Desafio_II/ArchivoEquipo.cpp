@@ -119,7 +119,7 @@ void actualizarHistoricoEquipoArchivo(const Equipo &equipo, const string &nombre
 
     for(int i = 1; i < totalLineas; i++){
         string &l = lineas[i];
-        int len = (int)l.size();
+        unsigned int len = (unsigned int)l.size();
         string paisLeido = "";
         unsigned int j = 0;
         while (j < len && l[j] != ';') {
@@ -157,3 +157,27 @@ void actualizarHistoricoEquipoArchivo(const Equipo &equipo, const string &nombre
 
     salida.close();
 }
+int cargarTodosLosEquipos(Equipo equipos[], int maxEquipos, const string &nombreArchivo)
+{
+    ifstream archivo(nombreArchivo);
+    string linea;
+    int total = 0;
+
+    if (!archivo.is_open()) {
+        cout << "\n No se pudo abrir el archivo " << nombreArchivo << endl;
+        return 0;
+    }
+
+    getline(archivo, linea);
+    getline(archivo, linea);
+
+    while (getline(archivo, linea) && total < maxEquipos) {
+        leerHistoricoEquipo(equipos[total], linea);
+        total++;
+    }
+
+    archivo.close();
+    return total;
+
+}
+

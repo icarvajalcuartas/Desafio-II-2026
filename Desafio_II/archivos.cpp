@@ -15,13 +15,14 @@ string crearLineaJugador(unsigned short int numCamiseta,unsigned short int partJ
 
     return resultado;
 }
-unsigned short int extraerNumeroCamiseta(const string &linea){
+unsigned short int extraerNumeroCamiseta(const string &linea, int &it){
     int len = (int)linea.size();
     int contadorPuntos=0;
     int inicioNum=-1;
     int finNum=-1;
 
     for (int i=0;i<len;++i) {
+        it ++;
         if (linea[i]==';') {
             contadorPuntos++;
             if (contadorPuntos==2) {
@@ -66,7 +67,7 @@ void actualizarArchivoCSV(const string& nombreArchivo, const string &equipo,unsi
                           unsigned short int tarAmarillas, unsigned short int tarRojas,
                           unsigned short int faltAcumuladas, int &it){
     ifstream archivo(nombreArchivo);
-    const int filasMax = 1050;
+    const int filasMax = 2000;
     string* lineas[filasMax];
     int totalLineas = 0;
     string temp;
@@ -92,6 +93,7 @@ void actualizarArchivoCSV(const string& nombreArchivo, const string &equipo,unsi
         if ((int)l.size()>=lenBus) {
             bool coincide=true;
             for (int j=0;j<lenBus;++j) {
+                it++;
                 if (l[j]!=lineaEquipoBuscada[j]) {
                     coincide = false;
                     break;
@@ -148,7 +150,7 @@ void actualizarArchivoCSV(const string& nombreArchivo, const string &equipo,unsi
         bool encontrado = false;
         for (int i = idxInicioJugadores; i < idxFinBloque; ++i) {
             it++;
-            unsigned short int numLinea = extraerNumeroCamiseta(*lineas[i]);
+            unsigned short int numLinea = extraerNumeroCamiseta(*lineas[i],it);
             if (numLinea == numCamiseta) {
                 delete lineas[i];
                 lineas[i] = new string(
@@ -180,7 +182,7 @@ void actualizarArchivoCSV(const string& nombreArchivo, const string &equipo,unsi
     }
     cerrarArchivo.close();
 }
-void actualizarArchivo(const HistoricoJugador& estadisticas,unsigned short int numeroCamiseta,const string &equipo)
+int actualizarArchivo(const HistoricoJugador& estadisticas,unsigned short int numeroCamiseta,const string &equipo)
 {
     string archivo="Historico_jugadores.CSV";
     int iteraciones=0;
@@ -189,5 +191,6 @@ void actualizarArchivo(const HistoricoJugador& estadisticas,unsigned short int n
                          estadisticas.getminJugados(),estadisticas.getasistencias(),
                          estadisticas.gettarAmarillas(),estadisticas.gettarRojas(),estadisticas.getfaltAcumuladas(),
                          iteraciones);
-    cout<<"iteraciones: "<<iteraciones<<endl;
+    //cout<<"iteraciones: "<<iteraciones<<endl;
+    return iteraciones;
 }

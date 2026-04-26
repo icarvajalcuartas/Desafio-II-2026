@@ -6,18 +6,22 @@ CONFIG -= qt
 SOURCES += \
         ArchivoEquipo.cpp \
         Equipo.cpp \
+        Grupo.cpp \
         HistoricoEquipo.cpp \
         HistoricoJugador.cpp \
         Jugador.cpp \
+        Torneo.cpp \
         archivos.cpp \
         main.cpp
 
 HEADERS += \
     ArchivoEquipo.h \
     Equipo.h \
+    Grupo.h \
     HistoricoEquipo.h \
     HistoricoJugador.h \
     Jugador.h \
+    Torneo.h \
     archivos.h
 
 DISTFILES += \

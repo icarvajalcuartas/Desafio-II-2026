@@ -175,5 +175,5 @@ bool Equipo::operator<(const Equipo &otro) const
 Equipo::~Equipo()
 {
     delete[] jugadores;
-    cout<<"\n La instancia de equipo ha sido destruida correctamente"<<endl;
+    //cout<<"\n La instancia de equipo ha sido destruida correctamente"<<endl;
 }
