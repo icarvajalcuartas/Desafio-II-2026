@@ -61,8 +61,8 @@ public:
     bool operator>(const Equipo &otro) const;
     bool operator<(const Equipo &otro) const;
     friend void leerHistoricoEquipo(Equipo &equipo, const string &lineaCSV);
-    friend string crearLineaEquipo(const Equipo &equipo);
-    friend void actualizarEquipoEnArchivo(const Equipo &equipo, const string &nombreArchivo);
+    friend string crearLineaHistoricoEquipo(const Equipo &equipo);
+    friend void actualizarHistoricoEquipoArchivo(const Equipo &equipo, const string &nombreArchivo);
     ~Equipo();
 };
 

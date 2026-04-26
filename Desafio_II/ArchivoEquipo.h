@@ -10,6 +10,6 @@ using namespace std;
 
 void leerHistoricoEquipo(Equipo &equipo, const string &lineaCSV);
 void cargarEquipoDesdeArchivo(Equipo &equipo, const string &nombreArchivo, const string &paisBuscado);
-string crearLineaEquipo(const Equipo &equipo);
-void actualizarEquipoEnArchivo(const Equipo &equipo, const string &nombreArchivo);
+string crearLineaHistoricoEquipo(const Equipo &equipo);
+void actualizarHistoricoEquipoArchivo(const Equipo &equipo, const string &nombreArchivo);
 #endif // ARCHIVOEQUIPO_H

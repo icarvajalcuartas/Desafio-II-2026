@@ -151,16 +151,16 @@ void HistoricoEquipo::setFaltas(unsigned short int fa)
 
 void HistoricoEquipo::print() const
 {
-    cout<<"\n Historico Equipo:{"
-         <<"\n Goles a favor: "<<golesFavor
-         <<"\n Goles en contra: "<<golesContra
-         <<"\n Partidos ganados: "<<partidosGanados
-         <<"\n Partidos empatados: "<<partidosEmpatados
-         <<"\n Partidos perdidos: "<<partidosPerdidos
-         <<"\n Tarjetas amarillas: "<<tarjetasAmarillas
-         <<"\n Tarjetas rojas: "<<tarjetasRojas
-         <<"\n Faltas: "<<faltas
-         <<"\n }"<<endl;
+    cout<<"Historico Equipo:{"
+         <<"Goles a favor: "<<golesFavor<<endl
+         <<"Goles en contra: "<<golesContra<<endl
+         <<"Partidos ganados: "<<partidosGanados<<endl
+         <<"Partidos empatados: "<<partidosEmpatados<<endl
+         <<"Partidos perdidos: "<<partidosPerdidos<<endl
+         <<"Tarjetas amarillas: "<<tarjetasAmarillas<<endl
+         <<"Tarjetas rojas: "<<tarjetasRojas<<endl
+         <<"Faltas: "<<faltas<<endl
+         <<"}"<<endl;
 }
 
 HistoricoEquipo::~HistoricoEquipo()

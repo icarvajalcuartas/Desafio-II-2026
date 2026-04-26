@@ -21,5 +21,6 @@ HEADERS += \
     archivos.h
 
 DISTFILES += \
+    Historico_equipos.csv \
     Historico_jugadores.csv \
     selecciones_clasificadas_mundial.csv

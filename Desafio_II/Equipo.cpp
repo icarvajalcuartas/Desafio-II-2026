@@ -131,18 +131,19 @@ void Equipo::actualizarHistoricoEquipo(unsigned short int gf, unsigned short int
 
 void Equipo::print() const
 {
-    cout<<"\n Equipo:{";
-    cout<<"\n Pais: "<<pais;
-    cout<<"\n Federacion: "<<federacion;
-    cout<<"\n Confederacion: "<<confederacion;
-    cout<<"\n Director tecnico: "<<directorTecnico;
-    cout<<"\n Ranking FIFA: "<<rankingFIFA;
-    cout<<"\n Grupo: "<<grupo;
+    cout<<"------Detalles del equipo "<<pais<<"------"<<endl;
+    cout<<"Equipo:{"<<endl
+         <<"Pais: "<<pais<<endl
+         <<"Federacion: "<<federacion<<endl
+         <<"Confederacion: "<<confederacion<<endl
+         <<"Director tecnico: "<<directorTecnico<<endl
+         <<"Ranking FIFA: "<<rankingFIFA<<endl
+         <<"Grupo: "<<grupo<<endl;
 
     historico.print();
 
-    cout<<"\n Cantidad de jugadores: "<<cantJugadores;
-    cout<<"\n }"<<endl;
+    cout<<"Cantidad de jugadores: "<<cantJugadores<<endl;
+    cout<<"}"<<endl;
 }
 
 void Equipo::printJugadores() const
