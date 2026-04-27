@@ -52,7 +52,7 @@ unsigned short int Grupo::getCantEquipos() const
     return cantEquipos;
 }
 
-Equipo Grupo::getEquipo(unsigned short int pos) const
+const Equipo& Grupo::getEquipo(unsigned short int pos) const
 {
     return equipos[pos];
 }
@@ -96,6 +96,15 @@ bool Grupo::agregarEquipo(const Equipo &equipo)
     }
 
     return false;
+}
+
+bool Grupo::quitarUltimoEquipo()
+{
+    if(cantEquipos==0){
+        return false;
+    }
+    cantEquipos--;
+    return true;
 }
 
 void Grupo::print() const

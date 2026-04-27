@@ -76,6 +76,22 @@ Equipo& Equipo::operator=(const Equipo &otro)
     return *this;
 }
 
+void Equipo::seleccionarJugadores(int indices[]) const
+{
+    bool usado[26] = {};
+
+    for (int i = 0; i < 11; ++i)
+    {
+        int idx;
+        do {
+            idx = rand() % cantJugadores;
+        } while (usado[idx]);
+
+        usado[idx] = true;
+        indices[i] = idx;
+    }
+}
+
 string Equipo::getPais() const { return pais; }
 string Equipo::getFederacion() const { return federacion; }
 string Equipo::getConfederacion() const { return confederacion; }
@@ -95,6 +111,11 @@ Jugador* Equipo::getJugadores() const { return jugadores; }
 Jugador Equipo::getJugador(unsigned short int pos) const
 {
     return jugadores[pos];
+}
+
+Jugador &Equipo::getJugadorRef(int idx)
+{
+    return jugadores[idx];
 }
 
 void Equipo::setPais(string p){ pais=p; }
@@ -164,12 +185,12 @@ void Equipo::printJugador(unsigned short numeroC)
 
 bool Equipo::operator>(const Equipo &otro) const
 {
-    return rankingFIFA < otro.rankingFIFA;
+    return rankingFIFA > otro.rankingFIFA;
 }
 
 bool Equipo::operator<(const Equipo &otro) const
 {
-    return rankingFIFA > otro.rankingFIFA;
+    return rankingFIFA < otro.rankingFIFA;
 }
 
 Equipo::~Equipo()

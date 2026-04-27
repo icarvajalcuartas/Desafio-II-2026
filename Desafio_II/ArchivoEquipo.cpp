@@ -3,6 +3,7 @@
 #include "HistoricoEquipo.h"
 #include <fstream>
 #include <string>
+static bool empiezaConDigito(const string& s);
 
 void leerHistoricoEquipo(Equipo &equipo, const string &lineaCSV)
 {
@@ -21,7 +22,20 @@ void leerHistoricoEquipo(Equipo &equipo, const string &lineaCSV)
         }
     }
     columnas[j] = dato;
-
+    for (int k = 0; k <= 9; ++k)
+    {
+        if (!columnas[k].empty() && columnas[k].back() == '\r')
+        {
+            columnas[k].pop_back();
+        }
+    }
+    if (columnas[0].size() >= 3 &&
+        (unsigned char)columnas[0][0] == 0xEF &&
+        (unsigned char)columnas[0][1] == 0xBB &&
+        (unsigned char)columnas[0][2] == 0xBF)
+    {
+        columnas[0] = columnas[0].substr(3);
+    }
     equipo.rankingFIFA = (unsigned short int)stoi(columnas[0]);
     equipo.pais = columnas[1];
     equipo.directorTecnico = columnas[2];
@@ -68,10 +82,10 @@ void cargarEquipoDesdeArchivo(Equipo &equipo, const string &nombreArchivo, const
         return;
     }
 
-    getline(archivo, linea);
-    getline(archivo, linea);
 
     while (getline(archivo, linea)) {
+        if (!linea.empty() && linea.back() == '\r') { linea.pop_back(); }
+        if (!empiezaConDigito(linea)) { continue; }
         string dato = "";
         string columnas[10];
         int j = 0;
@@ -157,6 +171,16 @@ void actualizarHistoricoEquipoArchivo(const Equipo &equipo, const string &nombre
 
     salida.close();
 }
+
+static bool empiezaConDigito(const string& s)
+{
+    int i = 0;
+    while (i <(int)s.size() && (s[i]== ' ' || s[i]== '\t')) {
+        i++;
+    }
+    return (i <(int)s.size() && s[i]>= '0' && s[i]<= '9');
+}
+
 int cargarTodosLosEquipos(Equipo equipos[], int maxEquipos, const string &nombreArchivo)
 {
     ifstream archivo(nombreArchivo);
@@ -168,10 +192,10 @@ int cargarTodosLosEquipos(Equipo equipos[], int maxEquipos, const string &nombre
         return 0;
     }
 
-    getline(archivo, linea);
-    getline(archivo, linea);
 
     while (getline(archivo, linea) && total < maxEquipos) {
+        if (!linea.empty() && linea.back() == '\r') { linea.pop_back(); }
+        if (!empiezaConDigito(linea)) { continue; }
         leerHistoricoEquipo(equipos[total], linea);
         total++;
     }

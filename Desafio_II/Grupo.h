@@ -19,12 +19,13 @@ public:
 
     char getLetra() const;
     unsigned short int getCantEquipos() const;
-    Equipo getEquipo(unsigned short int pos) const;
+    const Equipo& getEquipo(unsigned short int pos) const;
 
     void setLetra(char l);
 
     bool puedeAgregarEquipo(const Equipo &equipo) const;
     bool agregarEquipo(const Equipo &equipo);
+    bool quitarUltimoEquipo();
 
     void print() const;
 

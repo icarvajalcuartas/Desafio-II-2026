@@ -10,6 +10,7 @@ SOURCES += \
         HistoricoEquipo.cpp \
         HistoricoJugador.cpp \
         Jugador.cpp \
+        Partido.cpp \
         Torneo.cpp \
         archivos.cpp \
         main.cpp
@@ -21,6 +22,7 @@ HEADERS += \
     HistoricoEquipo.h \
     HistoricoJugador.h \
     Jugador.h \
+    Partido.h \
     Torneo.h \
     archivos.h
 

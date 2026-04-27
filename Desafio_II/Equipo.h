@@ -26,6 +26,7 @@ public:
     Equipo(string p, string f, string c, string dt, unsigned short int r, char g);
     Equipo(const Equipo &copiaEquipo);
     Equipo& operator=(const Equipo &otro);
+    void seleccionarJugadores(int indices[11]) const;
 
     string getPais() const;
     string getFederacion() const;
@@ -39,6 +40,7 @@ public:
     unsigned short int getCantJugadores() const;
     Jugador* getJugadores() const;
     Jugador getJugador(unsigned short int pos) const;
+    Jugador& getJugadorRef(int idx);
 
     void setPais(string p);
     void setFederacion(string f);
